@@ -10,7 +10,7 @@ class MapView extends React.PureComponent {
     this.state = {
       // lng: -73.9784895,
       // lat: 40.7850574,
-      zoom: 15,
+      zoom: 12,
     };
     console.log("this.props in MapView constructor--->", this.props);
     this.mapContainer = React.createRef();
@@ -24,6 +24,12 @@ class MapView extends React.PureComponent {
   loadMap() {
     const { zoom } = this.state;
     const { lng, lat } = this.props;
+    console.log(
+      "lat on load map is",
+      this.props.lat,
+      "long on load map is",
+      this.props.lng
+    );
     const map = new mapboxgl.Map({
       container: this.mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v11",
@@ -78,7 +84,6 @@ class MapView extends React.PureComponent {
   }
 
   render() {
-    console.log("this.props in render--->", this.props.restaurants.length);
     return (
       <div>
         <div ref={this.mapContainer} className="map-container" />

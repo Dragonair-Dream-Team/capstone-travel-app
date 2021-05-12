@@ -6,6 +6,23 @@ module.exports = router;
 
 const client = yelp.client(apiKey);
 
+router.post("/locations", async (req, res, next) => {
+  const searchRequest = {
+    location: req.body.location,
+    limit: 50,
+  };
+  client
+    .search(searchRequest)
+    .then((response) => {
+      const results = response.jsonBody.businesses;
+      const prettyJson = JSON.stringify(results, null, 4);
+      res.send(prettyJson);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+});
+
 router.post("/:lat/:long", async (req, res, next) => {
   console.log("Second Route Reached");
   console.log("req.body is", req.body);
@@ -30,7 +47,7 @@ router.post("/:lat/:long", async (req, res, next) => {
 router.get("/:lat/:long", async (req, res, next) => {
   console.log("First Route Reached");
   const searchRequest = {
-    term: "bars",
+    term: "restaurants",
     latitude: req.params.lat,
     longitude: req.params.long,
     limit: 30,
