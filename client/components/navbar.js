@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 import { logout } from "../store";
 
 const Navbar = ({ handleClick, isLoggedIn }) => (
-  <div id="nav-div">
+  <div>
     <h1>4 Course</h1>
     <nav>
       {isLoggedIn ? (
         <div>
           {/* The navbar will show these links after you log in */}
           <Link to="/home">Home</Link>
+          <Link to="/createchallenge">Create Challenge</Link>
           <a href="#" onClick={handleClick}>
             Logout
           </a>

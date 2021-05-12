@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import axios from "axios";
 
 /**
  * COMPONENT
@@ -32,7 +33,6 @@ export const Home = (props) => {
       console.log(e);
     }
   }
-
   */
 
   // useEffect(() => {
@@ -40,11 +40,31 @@ export const Home = (props) => {
   //   navigator.geolocation.getCurrentPosition(success, error, options);
   // });
 
+  async function getMenu() {
+    let config = {
+      method: "get",
+      url: "https://api.documenu.com/v2/restaurants/zip_code/10128?size=5?fullMenu=true",
+      headers: {
+        "x-api-key": "e01a8fb80c2cea25ee89d084c6bab92a",
+      },
+    };
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   return (
     <div>
       <h3>Welcomeeee, {username}</h3>
       <button type="button" onClick={() => props.history.push(`/yelp`)}>
         See Restaurants Near You!
+      </button>
+      <button type="button" onClick={getMenu}>
+        click menu
       </button>
     </div>
   );

@@ -10,18 +10,14 @@ class MapView extends React.PureComponent {
     this.state = {
       // lng: -73.9784895,
       // lat: 40.7850574,
-      zoom: 12,
+      zoom: 9,
     };
     console.log("this.props in MapView constructor--->", this.props);
     this.mapContainer = React.createRef();
-    this.loadMap = this.loadMap.bind(this);
+    //this.loadMap = this.loadMap.bind(this);
   }
 
   componentDidMount() {
-    this.loadMap();
-  }
-
-  loadMap() {
     const { zoom } = this.state;
     const { lng, lat } = this.props;
     console.log(
