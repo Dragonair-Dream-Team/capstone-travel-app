@@ -35,7 +35,12 @@ class Searches extends React.Component {
         <form>
           <h1>Search By</h1>
           <h3>Cuisine: </h3>
-          <input type="text" name="searchTerm" onChange={this.handleChange} />
+          <input
+            type="text"
+            name="searchTerm"
+            defaultValue=""
+            onChange={this.handleChange}
+          />
           <button type="submit" onClick={this.handleSubmit}>
             Search
           </button>
