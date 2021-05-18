@@ -6,7 +6,6 @@ import RestaurantContainer from "./RestaurantContainer";
 import Searches from "./Searches";
 import { ThemeProvider } from "@material-ui/styles";
 import theme from "../theme.js";
-import { restaurantSelectionThunk } from "../store/restaurantSelections";
 
 class Map extends React.Component {
   constructor(props) {
@@ -22,7 +21,6 @@ class Map extends React.Component {
     this.restaurantSelection = this.restaurantSelection.bind(this);
     this.handleRadioChange = this.handleRadioChange.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.addSelectionsToStore = this.addSelectionsToStore.bind(this);
     console.log("props I get on Map", this.props);
   }
   searchNewCuisine(cuisine, lat, long) {
@@ -51,15 +49,6 @@ class Map extends React.Component {
       }
     }
   }
-
-  addSelectionsToStore() {
-    console.log(this.state.selections);
-    this.props.setRestaurantSelections(
-      this.props.eventId,
-      this.state.selections
-    );
-  }
-
   removeSelection(resId) {
     this.setState({
       selections: this.state.selections.filter((item) => {
@@ -99,7 +88,6 @@ class Map extends React.Component {
         <RestaurantContainer
           resSelections={this.state.selections}
           removal={(resId) => this.removeSelection(resId)}
-          addSelectionsToStore={this.addSelectionsToStore}
         />
         <h1>Map Component Here:</h1>
         <Searches
@@ -234,7 +222,6 @@ class Map extends React.Component {
 }
 const mapState = (state) => ({
   restaurants: state.restaurants,
-  eventId: state.events.id,
 });
 
 const mapDispatch = (dispatch) => {
@@ -242,8 +229,6 @@ const mapDispatch = (dispatch) => {
     _searchCuisine: (cuisine, lat, long) => {
       dispatch(setCuisineThunk(cuisine, lat, long));
     },
-    setRestaurantSelections: (id, array) =>
-      dispatch(restaurantSelectionThunk(id, array)),
   };
 };
 
