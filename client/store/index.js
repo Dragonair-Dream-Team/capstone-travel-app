@@ -5,15 +5,11 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import auth from "./auth";
 import restaurantReducer from "./restaurants";
 import emails from "./emails";
-import restaurantSelectionReducer from "./restaurantSelections";
-import eventsReducer from "./events";
 
 const reducer = combineReducers({
   auth,
   restaurants: restaurantReducer,
-  emails,
-  restaurantSelections: restaurantSelectionReducer,
-  events: eventsReducer,
+  emails
 });
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({ collapsed: true }))
