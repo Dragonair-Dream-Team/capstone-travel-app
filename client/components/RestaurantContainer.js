@@ -20,6 +20,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const RestaurantContainer = (props) => {
+  const restaurantToBackEnd = () => {
+    const restaurantArray = props.resSelections.map(
+      (selection) => selection.yelpId
+    );
+    console.log("resArray", restaurantArray);
+  };
+
   const classes = useStyles();
   return (
     <Grid container direction="row" justify="flex-end" alignItems="center">
@@ -44,6 +51,7 @@ const RestaurantContainer = (props) => {
         variant="contained"
         color="secondary"
         size="large"
+        onClick={() => props.addSelectionsToStore()}
       >
         INVITE FRIENDS
       </Button></Link>
