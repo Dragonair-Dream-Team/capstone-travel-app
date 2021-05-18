@@ -11,6 +11,8 @@ const useStyles = makeStyles((theme) => ({
   },
   listItem: {
     listStyleType: "none",
+    fontFamily: "Permanent Marker",
+    color: "#fff100",
   },
   inviteButton: {
     fontFamily: "Permanent Marker",
@@ -21,19 +23,21 @@ const useStyles = makeStyles((theme) => ({
 const RestaurantContainer = (props) => {
   const classes = useStyles();
   return (
-    <Grid container direction="row" justify="flex-end">
+    <Grid container direction="row">
       <ul>
         {props.resSelections.map((res) => (
           <Grid item key={res.yelpId}>
             <li className={classes.listItem}>{res.yelpName}</li>
-            <Button
-              className={classes.resListButton}
-              variant="contained"
-              color="secondary"
-              onClick={() => props.removal(res.yelpId)}
-            >
-              remove
-            </Button>
+            <Grid item>
+              <Button
+                className={classes.resListButton}
+                variant="contained"
+                color="secondary"
+                onClick={() => props.removal(res.yelpId)}
+              >
+                remove
+              </Button>
+            </Grid>
           </Grid>
         ))}
       </ul>

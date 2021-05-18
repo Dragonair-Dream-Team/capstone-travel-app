@@ -99,7 +99,7 @@ class BeginSearch extends React.Component {
       );
     } else {
       return (
-        <div className="begin-search">
+        <div id="begin-search">
           <img src={sushiPic} alt="sushi" id="sushi-pic" />
           <form>
             <h1>Where are we Starting?</h1>

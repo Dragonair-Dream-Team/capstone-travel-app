@@ -198,7 +198,7 @@ class Map extends React.Component {
         </form>
         <div>
           {resList.map((item) => (
-            <div className="restaurant-container" key={item.id}>
+            <div key={item.id}>
               {item.name}
               <p>{item.location.display_address}</p>
               <img className="restaurant-image" src={item.image_url} />
