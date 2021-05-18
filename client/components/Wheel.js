@@ -1,6 +1,5 @@
 
 import React from "react";
-import { Link } from "react-router-dom";
 
 /**
  * COMPONENT
@@ -53,16 +52,9 @@ class Wheel extends React.Component {
           </button>
           </div>
         ):(
-          <div>
-            <p>
+          <p>
             Your assigned course is ...
             </p>
-            <Link to="/invite">
-            <button>
-              Next
-          </button>
-            </Link>
-          </div>
           )
         }
     </div>
