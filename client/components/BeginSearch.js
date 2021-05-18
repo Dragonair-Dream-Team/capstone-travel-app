@@ -39,7 +39,6 @@ class BeginSearch extends React.Component {
   }
   success(pos) {
     var crd = pos.coords;
-    console.log (`Latitude : ${crd.latitude}`);
     console.log (`Longitude: ${crd.longitude}`);
     console.log (`More or less ${crd.accuracy} meters.`);
     this.setState ({lng: crd.longitude, lat: crd.latitude});
