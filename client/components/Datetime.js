@@ -22,6 +22,8 @@ function Datetime ({handleSave, history}) {
     return YYYY + "-" + (MM[1]?MM:"0"+MM[0]) + "-" + (DD[1]?DD:"0"+DD[0]) + " " + (hh[1]?hh:"0"+hh[0]) + ":" + (mm[1]?mm:"0"+mm[0]) + ":" + (ss[1]?ss:"0"+ss[0]);
 };
 
+  console.log(props);
+
   return (
     <div className="center">
       <h1>Choose Date & Time</h1>

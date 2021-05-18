@@ -39,12 +39,12 @@ class BeginSearch extends React.Component {
   }
   success(pos) {
     var crd = pos.coords;
-    console.log("Your current position is:");
-    console.log(`Latitude : ${crd.latitude}`);
-    console.log(`Longitude: ${crd.longitude}`);
-    console.log(`More or less ${crd.accuracy} meters.`);
-    this.setState({ lng: crd.longitude, lat: crd.latitude });
-    this.props._getRestaurants(this.state.lat, this.state.lng);
+    console.log (`Latitude : ${crd.latitude}`);
+    console.log (`Longitude: ${crd.longitude}`);
+    console.log (`More or less ${crd.accuracy} meters.`);
+    this.setState ({lng: crd.longitude, lat: crd.latitude});
+    this.props._getRestaurants (this.state.lat, this.state.lng);
+
   }
   error(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
